@@ -25,6 +25,9 @@ jobs:
       - run: git checkout HEAD^2
         if: ${{ github.event_name == 'pull_request' }}
         
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2   
+        
       - name: Download Fortify ScanCentral Client
         uses: fortify/gha-setup-scancentral-client@v1
       - name: Package Code + Dependencies
